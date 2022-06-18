@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>upButton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='description' content='Кнопка вверх'>
+    <style media="screen">
+      body{
+        min-height:100vh;
+        background:linear-gradient(yellow,cyan);
+        width:100%;
+        display: flex;
+        justify-content: center;
+      }
+      main{
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+        max-width:100%;
+        width:900px;
+        flex-direction: column;
+
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Кнопка ап батон на яваскрипте.</h1>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </main>
+    <script type="text/javascript">
+let scroLOL;
+let ok=+0;
+
+window.addEventListener('scroll',()=>{
+  function scroL(){
+    scrollY?scroLOL=true:scroLOL=false;
+    console.log("300",scroLOL);
+  }
+  if(scrollY>100){
+    scroL()
+  }else{
+    scroL();
+  }
+
+  if(scroLOL===true&&ok==0){
+    if(ok===0){
+      ok++;
+      let upButton = document.createElement('p');
+      document.body.append(upButton);
+      upButton.style.cssText=`
+        font-size:35px;
+        position:fixed;
+        bottom:15px;
+        right:10%;
+      `;
+      upButton.innerHTML=`<span id="upButton">🆙</span>`; // тут может быть любое Эмодзи или что нибудь еще
+      document.querySelector('#upButton').addEventListener('click',()=>{
+          upButton.style.cssText=`
+
+          `;
+          window.scroll(0,0); // Обнулить заначение скролла https://developer.mozilla.org/ru/docs/Web/API/Window/scrollY
+      });
+    }
+  }else if(scroLOL===false&&ok==1){
+      console.log('LOL===falseAndScrollOK=0');
+      document.querySelector('body > p').remove();
+      ok=0;
+  }else{
+    console.log("ELSE O_o if");
+  }
+});
+</script>
+  </body>
+</html>
